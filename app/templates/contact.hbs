@@ -1,1 +1,16 @@
+{{!--
+  Requirements:
+  - two fields: email address and text message
+  - "Send message" Button, only active if email address fields is not empty and valid and some message in text box
+  - After clicking on the "Send message" button, an alert should appear with the email address and the message
+  - Close alert message, form should be clear and success message should appear on the page in a green box saying "We got you message and we'll get in touch soon"
+ --}}
+
 <h1>Contact Page</h1>
+{{ input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus" }}
+{{ input type="textarea" value=textMessage class="form-control" placeholder="Please type your message."}}
+<button disabled={{isNotValid}} {{action 'sendMessage'}} class="btn btn-primary btn-lg btn-block">Send message</button>
+
+{{#if successMessage}}
+  <div>{{successMessage}}</div>
+{{/if}}

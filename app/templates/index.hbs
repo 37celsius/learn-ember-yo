@@ -1,1 +1,26 @@
-<h1>Home Page</h1>
+{{!--
+  Requirements:
+  - "Invite me" button should be inactive when input box is empty
+  - "Invite me" button should be inactive when the content in the input box is not a valid email address.
+  - Show a response message after clicking on "Invite me" button.
+  - Clear the input box after invitation has sent
+ --}}
+<div class="jumbotron text-center">
+  <h1>{{headerMessage}}</h1>
+
+  <p>Don't miss our launch date, request an invitation now.</p>
+
+  <div class="form-horizontal form-group form-group-lg row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+      {{ input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus" }}
+    </div>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+      <button disabled={{isDisabled}} {{action 'saveInvitation'}} class="btn btn-primary btn-lg btn-block">Request invitation</button>
+    </div>
+  </div>
+
+  {{#if responseMessage}}
+    <div class="alert alert-success">{{responseMessage}}</div>
+  {{/if}}
+
+</div>
