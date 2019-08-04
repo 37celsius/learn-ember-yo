@@ -6,6 +6,21 @@
   - Close alert message, form should be clear and success message should appear on the page in a green box saying "We got you message and we'll get in touch soon"
  --}}
 
+ {{!--
+  Option 1: Further improve your Contact Page.
+
+  Create a contact model with email and message fields.
+  Save the model on the server when someone clicks on the “Send” button on the Contact form. Update your contact.js controller to contain validations and actions.
+  Create an Admin page under http://localhost:4200/admin/contacts
+  List all saved messages in a table.
+
+  Option 2: Refactor your app’s contact section with usage of model in route.
+
+  Move contact validation into the contact model.
+  Copy and paste the actions from the controller to the route and try sending a message. Why don’t the message and email boxes clear? Refactor it so they do clear. You’ll also need to correct the same problem in the validation code you moved to the contact model.
+  Remove the contact controller.
+  --}}
+
 <h1>Contact Page</h1>
 {{ input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus" }}
 {{ input type="textarea" value=textMessage class="form-control" placeholder="Please type your message."}}

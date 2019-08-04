@@ -14,10 +14,16 @@ export default Controller.extend({
   actions: {
 
     sendMessage() {
-      alert(`Email Address: ${this.get('emailAddress')} with message: ${this.get('textMessage')}`);
-      this.set('emailAddress', '');
-      this.set('textMessage', '');
-      this.set('successMessage', "We got you message and we'll get in touch soon");
+      const email = this.get('emailAddress');
+      const message = this.get('textMessage');
+      // Have to be the same as the model name contact.js
+      const newMessage = this.store.createRecord('contact', { email, message });
+
+      newMessage.save().then(response => {
+        this.set('emailAddress', '');
+        this.set('textMessage', '');
+        this.set('successMessage', `We got you message and we'll get in touch soon to your ${response.get('email')}`);
+      })
     }
 
   }
